@@ -155,6 +155,18 @@ const blastoisePokemon =
 const charizarPokemon =
   new pokemonUniverse(`Charizar`, 90.5, 1.7, 84, 74, 100, 78, `charizar`, `fuego`);
 
+const obiWanKenobi =
+  new starWarsUniverse(`Obi Wan Kenobi`, 80, 1.82, 130, 100, 100, 300, `Que la fuerza te acompañe`);
+
+const dooku =
+  new starWarsUniverse(`Conde Dooku`, 80, 1.96, 120, 150, 80, 200, `Pásate al lado oscuro`);
+
+const goku =
+  new dragonBallUniverse(`Son Goku`, 62, 1.75, 150, 200, 120, 100, `No importa dónde estés, yo siempre sentiré tu KI`);
+
+const vegeta =
+  new dragonBallUniverse(`Vegeta`, 56, 1.64, 150, 150, 110, 100, `Maldito insecto`);
+
 const battle = new combat();
 battle.start(blastoisePokemon, charizarPokemon);
 
