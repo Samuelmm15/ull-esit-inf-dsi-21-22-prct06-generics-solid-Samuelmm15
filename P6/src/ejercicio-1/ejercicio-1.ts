@@ -2,6 +2,10 @@
 /* eslint-disable new-cap */
 /* eslint-disable quotes */
 /* eslint-disable max-len */
+/**
+ * This interface defines the structure of the characters
+ * of the differents universes.
+ */
 interface character {
   name: string;
   weight: number;
@@ -12,14 +16,41 @@ interface character {
   healthPoints: number;
 }
 
+/**
+ * This is the base class of the differents universes.
+ */
 abstract class fighter implements character {
+  /**
+   * This is the constructor of the base class.
+   * @param name Consists in the name of the character.
+   * @param weight Consists in the wight of the character.
+   * @param height Consists in the height of the character.
+   * @param attack Consists in the attack of the character.
+   * @param defense Consists in the defense of the character.
+   * @param speed Consistis in the speed of the character.
+   * @param healthPoints Consists in the health points of the character.
+   */
   constructor(public readonly name: string, public weight: number,
     public height: number, public attack: number, public defense: number,
     public speed: number, public healthPoints: number) {
   }
 }
 
+/**
+ * This class defines the pokemons objects.
+ */
 class pokemonUniverse extends fighter {
+  /**
+   * This is the constructor of the class.
+   * @param name Consists in the pokemon name.
+   * @param weight Consists in the pokemon weight.
+   * @param height Consists in the pokemon height.
+   * @param attack Consists in the pokemon attack.
+   * @param defense Consists in the pokemon defense.
+   * @param speed Consists in the pokemon speed.
+   * @param healthPoints Consists in the pokemon health points.
+   * @param pokemonType Consists in the pokemon type.
+   */
   constructor(name: string, weight: number, height: number,
       attack: number, defense: number, speed: number,
       healthPoints: number, public pokemonType: string) {
@@ -28,7 +59,21 @@ class pokemonUniverse extends fighter {
   }
 }
 
+/**
+ * This class defines the Star Wars characters objects.
+ */
 class starWarsUniverse extends fighter {
+  /**
+   * This is the constructor of the class.
+   * @param name Consists in the name of the heroe.
+   * @param weight Consists in the weight of the heroe.
+   * @param height Consists in the height of the heroe.
+   * @param attack Consists in the attack of the heroe.
+   * @param defense Consists in the defense of the heroe.
+   * @param speed Consists in the speed of the heroe.
+   * @param healthPoints Consists in the health points of the heroe.
+   * @param catchingPhrase Consists in the catching phrase of the heroe.
+   */
   constructor(name: string, weight: number, height: number,
       attack: number, defense: number, speed: number,
       healthPoints: number, public catchingPhrase: string) {
@@ -37,7 +82,21 @@ class starWarsUniverse extends fighter {
   }
 }
 
+/**
+ * This class defines the Dragon Ball characters objects.
+ */
 class dragonBallUniverse extends fighter {
+  /**
+   * This is the constructor of the class.
+   * @param name Consists in the name of the sayajin.
+   * @param weight Consists in the waight of the sayajin.
+   * @param height Consists in the height of the sayajin.
+   * @param attack Consists in the attack of the sayajin.
+   * @param defense Consists in the defense of the sayajin.
+   * @param speed Consists in the speed of the sayajin.
+   * @param healthPoints Consists in the health points of the sayajin.
+   * @param level Consists in the level of the sayajin.
+   */
   constructor(name: string, weight: number, height: number,
       attack: number, defense: number, speed: number,
       healthPoints: number, public level: number) {
@@ -46,9 +105,21 @@ class dragonBallUniverse extends fighter {
   }
 }
 
+/**
+ * This class contents all the characters of the differents
+ * universes.
+ */
 class pokedex {
+  /**
+   * This is the constructor of the class.
+   */
   constructor() {
   }
+  /**
+   * This function adds characters into the pokedex.
+   * @param element This is the list of characters
+   * to introduce into the pokedex.
+   */
   addToPokedex(...element: any[]) {
     const pokemonArray: pokemonUniverse[] = [];
     const starWarsArray: starWarsUniverse[] = [];
@@ -81,10 +152,33 @@ class pokedex {
   }
 }
 
+/**
+ * This class makes a real battle with differents
+ * characters of the differents universes.
+ */
 class combat {
+  /**
+   * This is the constructor of the class.
+   */
   constructor() {
   }
-  damageProduction(firstoponent: any, secondoponent: any, type1: number, type2: number) {
+  /**
+   * This function calculates the damage produced in an
+   * attack of one character against other.
+   * @param firstoponent Consists in the first character to attack.
+   * @param secondoponent Consists in the second character that
+   * receives damage.
+   * @param type1 Consists in the type of universe of the firstoponent.
+   * @param type2 Consists in the type of universe of the secondoponent.
+   * @returns The damage produced by the firstoponent to the secondoponent.
+   * Differents types of universes:
+   * ```
+   * type = 1; // Pokemon Universe
+   * type = 2; // Star Wars Universe
+   * type = 3; // Dragon Ball Universe
+   * ```
+   */
+  damageProduction(firstoponent: any, secondoponent: any, type1: number, type2: number): number {
     let damage: number = 0;
     let efficiency: number = 1; // by default
     if ((type1 === 1) && (type2 === 1)) {
@@ -128,6 +222,11 @@ class combat {
     damage = 50 * (firstoponent.attack / secondoponent.defense) * efficiency;
     return damage;
   }
+  /**
+   * This function makes a combat in real time.
+   * @param firstoponent Consists in the first oponent of the combat.
+   * @param secondoponent Consists in the second oponent of the combat.
+   */
   start(firstoponent: any, secondoponent: any) {
     let counter: number = 1;
     let combatFinish: number = -1;
