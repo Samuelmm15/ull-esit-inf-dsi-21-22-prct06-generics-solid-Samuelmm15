@@ -242,7 +242,7 @@ class combat {
       console.log(`Luchador 1: ${firstoponent.name}, puntos de vida inicial: ${firstoponent.healthPoints}, frase: ${firstoponent.catchingPhrase}`);
     } else if ("level" in firstoponent) {
       type1 = 3;
-      console.log(`Luchador 1: ${firstoponent.name}, puntos de vida inicial: ${firstoponent.healthPoints}, frase: ${firstoponent.catchingPhrase}`);
+      console.log(`Luchador 1: ${firstoponent.name}, puntos de vida inicial: ${firstoponent.healthPoints}, Nivel: ${firstoponent.level}`);
     }
     if ("pokemonType" in secondoponent) {
       type2 = 1;
@@ -254,7 +254,7 @@ class combat {
     }
     if ("level" in firstoponent) {
       type2 = 3;
-      console.log(`Luchador 2: ${secondoponent.name}, puntos de vida inicial: ${secondoponent.healthPoints}, frase: ${secondoponent.catchingPhrase}`);
+      console.log(`Luchador 2: ${secondoponent.name}, puntos de vida inicial: ${secondoponent.healthPoints}, Nivel: ${secondoponent.level}`);
     }
     console.log();
     while (combatFinish != 0) {
@@ -307,25 +307,25 @@ class combat {
   }
 }
 
-const blastoisePokemon =
+export const blastoisePokemon =
   new pokemonUniverse(`Blastoise`, 85.5, 1.6, 83, 100, 98, 79, `agua`);
 
-const charizarPokemon =
+export const charizarPokemon =
   new pokemonUniverse(`Charizar`, 90.5, 1.7, 84, 74, 100, 78, `fuego`);
 
-const obiWanKenobi =
+export const obiWanKenobi =
   new starWarsUniverse(`Obi Wan Kenobi`, 80, 1.82, 130, 100, 100, 300, `Que la fuerza te acompañe`);
 
-const dooku =
+export const dooku =
   new starWarsUniverse(`Conde Dooku`, 80, 1.96, 120, 150, 80, 200, `Pásate al lado oscuro`);
 
-const goku =
+export const goku =
   new dragonBallUniverse(`Son Goku`, 62, 1.75, 150, 200, 120, 100, 3);
 
-const vegeta =
+export const vegeta =
   new dragonBallUniverse(`Vegeta`, 56, 1.64, 150, 150, 110, 100, 3);
 
-const battle = new combat();
+export const battle = new combat();
 battle.start(obiWanKenobi, goku);
 
 const pokedexAdd = new pokedex();
