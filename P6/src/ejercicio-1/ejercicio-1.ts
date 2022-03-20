@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable new-cap */
+/* eslint-disable quotes */
 /* eslint-disable max-len */
 interface character {
   name: string;
@@ -44,20 +47,36 @@ class dragonBallUniverse extends fighter {
 }
 
 class pokedex {
-  constructor(public pokemon?: pokemonUniverse, public heroe?: starWarsUniverse,
-    public sayajin?: dragonBallUniverse) {
+  constructor() {
   }
-  addToPokedex(pokemon?: pokemonUniverse, heroe?: starWarsUniverse,
-      sayajin?: dragonBallUniverse) {
-    let pokemonArray: pokemonUniverse[] = [];
-    let starWarsArray: starWarsUniverse[] = [];
-    let dragonBallArray: dragonBallUniverse[] = [];
-    if (pokemon) {
-      pokemonArray.push(pokemon);
-    } else if (heroe) {
-      starWarsArray.push(heroe);
-    } else if (sayajin) {
-      dragonBallArray.push(sayajin);
+  addToPokedex(...element: any[]) {
+    const pokemonArray: pokemonUniverse[] = [];
+    const starWarsArray: starWarsUniverse[] = [];
+    const dragonBallArray: dragonBallUniverse[] = [];
+    let person: any;
+    element.forEach((person) => {
+      if ("pokemonType" in person) {
+        pokemonArray.push(person);
+      } else if ("catchingPhrase" in person) {
+        starWarsArray.push(person);
+      } else if ("level" in person) {
+        dragonBallArray.push(person);
+      }
+    });
+    const entry = require('prompt-sync')({sigit: true});
+    let optionPrint: string = ``;
+    console.log();
+    optionPrint = entry(`Desea imprimir por pantalla la pokedex (S/N): `);
+    if (optionPrint === `S`) {
+      console.log(`La Pokedex de Pokemon es: `);
+      console.log(pokemonArray);
+      console.log();
+      console.log(`La Pokedex de Star Wars es: `);
+      console.log(starWarsArray);
+      console.log();
+      console.log(`La pokedex de Dragon Ball es:`);
+      console.log(dragonBallArray);
+      console.log();
     }
   }
 }
@@ -209,4 +228,7 @@ const vegeta =
 
 const battle = new combat();
 battle.start(obiWanKenobi, goku);
+
+const pokedexAdd = new pokedex();
+pokedexAdd.addToPokedex(blastoisePokemon, charizarPokemon, obiWanKenobi, dooku, goku, vegeta);
 
