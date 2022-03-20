@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable new-cap */
 /* eslint-disable prefer-const */
@@ -54,9 +55,12 @@ class series extends basicStreamableCollection implements
     result = auxiliaryResult.sort();
     let finalResult: any[] = [];
     let j: number = 0;
+    let counter: number = 0;
     for (i = 0; i < this.seriesArray.length; i++) {
       for (j = 0; j < this.seriesArray.length; j++) {
-        if (result[i] === this.seriesArray[j].name) {
+        // eslint-disable-next-line max-len
+        if ((result[i] === this.seriesArray[j].name) && (counter < result.length)) {
+          counter++;
           finalResult.push(this.seriesArray[j]);
         }
       }
@@ -76,9 +80,12 @@ class series extends basicStreamableCollection implements
     result = auxiliaryResult.sort();
     let finalResult: any[] = [];
     let j: number = 0;
+    let counter: number = 0;
     for (i = 0; i < this.seriesArray.length; i++) {
       for (j = 0; j < this.seriesArray.length; j++) {
-        if (result[i] === this.seriesArray[j].age) {
+        // eslint-disable-next-line max-len
+        if ((result[i] === this.seriesArray[j].age) && (counter < result.length)) {
+          counter++;
           finalResult.push(this.seriesArray[j]);
         }
       }
@@ -98,9 +105,12 @@ class series extends basicStreamableCollection implements
     result = auxiliaryResult.sort();
     let finalResult: any[] = [];
     let j: number = 0;
+    let counter: number = 0;
     for (i = 0; i < this.seriesArray.length; i++) {
       for (j = 0; j < this.seriesArray.length; j++) {
-        if (result[i] === this.seriesArray[j].category) {
+        // eslint-disable-next-line max-len
+        if ((result[i] === this.seriesArray[j].category) && (counter < result.length)) {
+          counter++;
           finalResult.push(this.seriesArray[j]);
         }
       }
@@ -130,9 +140,12 @@ class films extends basicStreamableCollection implements streamable_film<any> {
     result = auxiliaryResult.sort();
     let finalResult: any[] = [];
     let j: number = 0;
+    let counter: number = 0;
     for (i = 0; i < this.FilmsArray.length; i++) {
       for (j = 0; j < this.FilmsArray.length; j++) {
-        if (result[i] === this.FilmsArray[j].name) {
+        // eslint-disable-next-line max-len
+        if ((result[i] === this.FilmsArray[j].name) && (counter < result.length)) {
+          counter++;
           finalResult.push(this.FilmsArray[j]);
         }
       }
@@ -152,9 +165,12 @@ class films extends basicStreamableCollection implements streamable_film<any> {
     result = auxiliaryResult.sort();
     let finalResult: any[] = [];
     let j: number = 0;
+    let counter: number = 0;
     for (i = 0; i < this.FilmsArray.length; i++) {
       for (j = 0; j < this.FilmsArray.length; j++) {
-        if (result[i] === this.FilmsArray[j].age) {
+        // eslint-disable-next-line max-len
+        if ((result[i] === this.FilmsArray[j].age) && (counter < result.length)) {
+          counter++;
           finalResult.push(this.FilmsArray[j]);
         }
       }
@@ -174,9 +190,12 @@ class films extends basicStreamableCollection implements streamable_film<any> {
     result = auxiliaryResult.sort();
     let finalResult: any[] = [];
     let j: number = 0;
+    let counter: number = 0;
     for (i = 0; i < this.FilmsArray.length; i++) {
       for (j = 0; j < this.FilmsArray.length; j++) {
-        if (result[i] === this.FilmsArray[j].category) {
+        // eslint-disable-next-line max-len
+        if ((result[i] === this.FilmsArray[j].category) && (counter < result.length)) {
+          counter++;
           finalResult.push(this.FilmsArray[j]);
         }
       }
@@ -208,9 +227,12 @@ class documentary extends basicStreamableCollection
     result = auxiliaryResult.sort();
     let finalResult: any[] = [];
     let j: number = 0;
+    let counter: number = 0;
     for (i = 0; i < this.documentaryArray.length; i++) {
       for (j = 0; j < this.documentaryArray.length; j++) {
-        if (result[i] === this.documentaryArray[j].name) {
+        // eslint-disable-next-line max-len
+        if ((result[i] === this.documentaryArray[j].name) && (counter < result.length)) {
+          counter++;
           finalResult.push(this.documentaryArray[j]);
         }
       }
@@ -230,9 +252,11 @@ class documentary extends basicStreamableCollection
     result = auxiliaryResult.sort();
     let finalResult: any[] = [];
     let j: number = 0;
+    let counter: number = 0;
     for (i = 0; i < this.documentaryArray.length; i++) {
       for (j = 0; j < this.documentaryArray.length; j++) {
-        if (result[i] === this.documentaryArray[j].age) {
+        if ((result[i] === this.documentaryArray[j].age) && (counter < result.length)) {
+          counter++;
           finalResult.push(this.documentaryArray[j]);
         }
       }
@@ -252,9 +276,11 @@ class documentary extends basicStreamableCollection
     result = auxiliaryResult.sort();
     let finalResult: any[] = [];
     let j: number = 0;
+    let counter: number = 0;
     for (i = 0; i < this.documentaryArray.length; i++) {
       for (j = 0; j < this.documentaryArray.length; j++) {
-        if (result[i] === this.documentaryArray[j].category) {
+        if ((result[i] === this.documentaryArray[j].category) && (counter < result.length)) {
+          counter++;
           finalResult.push(this.documentaryArray[j]);
         }
       }
@@ -293,10 +319,25 @@ const backToTheFuture =
 const totallyFilms =
   new films(``, 0, ``, ``, ``, []);
 
-totallyFilms.addFilm(starWars);
-totallyFilms.addFilm(backToTheFuture);
-totallyFilms.nameFilter();
-totallyFilms.ageFilter();
-totallyFilms.categoryFilter();
+// totallyFilms.addFilm(starWars);
+// totallyFilms.addFilm(backToTheFuture);
+// totallyFilms.nameFilter();
+// totallyFilms.ageFilter();
+// totallyFilms.categoryFilter();
+
+const goldAgeSamurais =
+  new documentary(`La edad de Oro de los samuráis`, 2021, `Documental`, `Historia`, `Netflix`, []);
+
+const ourPlanet =
+  new documentary(`Nuestro Planeta`, 2019, `Documental`, `Animal`, `National Geographic`, []);
+
+const totallyDocumentarys =
+  new documentary(``, 0, ``, ``, ``, []);
+
+totallyDocumentarys.addDocumentary(goldAgeSamurais);
+totallyDocumentarys.addDocumentary(ourPlanet);
+totallyDocumentarys.nameFilter();
+totallyDocumentarys.ageFilter();
+totallyDocumentarys.categoryFilter();
 
 
