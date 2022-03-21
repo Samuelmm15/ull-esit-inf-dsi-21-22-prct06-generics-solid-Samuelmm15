@@ -1,4 +1,5 @@
 import 'mocha';
+// eslint-disable-next-line no-unused-vars
 import {expect} from 'chai';
 import {blastoisePokemon} from '../src/ejercicio-1/ejercicio-1';
 import {charizarPokemon} from '../src/ejercicio-1/ejercicio-1';

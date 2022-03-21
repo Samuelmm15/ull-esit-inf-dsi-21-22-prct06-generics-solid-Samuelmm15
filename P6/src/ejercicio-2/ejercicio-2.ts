@@ -406,13 +406,13 @@ class documentary extends basicStreamableCollection
 }
 
 
-const sexEducation =
+export const sexEducation =
   new series(`Sex Education`, 2019, `Serie`, `Comedia`, 3, []);
 
-const gameOfThrones =
+export const gameOfThrones =
   new series(`Juego de Tronos`, 2011, `Serie`, `Fantasía`, 8, []);
 
-const totallySeries =
+export const totallySeries =
   new series(``, 0, ``, ``, 0, []);
 
 totallySeries.addSeries(sexEducation);
@@ -421,15 +421,15 @@ totallySeries.nameFilter();
 totallySeries.ageFilter();
 totallySeries.categoryFilter();
 
-const starWars =
+export const starWars =
   new films(`Star Wars`, 1977, `Película`, `Ciencia Ficción`,
       `George Lucas`, []);
 
-const backToTheFuture =
+export const backToTheFuture =
   new films(`Regreso al Futuro`, 1985, `Película`, `Ciencia Ficción`,
       `Bob Gale`, []);
 
-const totallyFilms =
+export const totallyFilms =
   new films(``, 0, ``, ``, ``, []);
 
 totallyFilms.addFilm(starWars);
@@ -438,13 +438,13 @@ totallyFilms.nameFilter();
 totallyFilms.ageFilter();
 totallyFilms.categoryFilter();
 
-const goldAgeSamurais =
+export const goldAgeSamurais =
   new documentary(`La edad de Oro de los samuráis`, 2021, `Documental`, `Historia`, `Netflix`, []);
 
-const ourPlanet =
+export const ourPlanet =
   new documentary(`Nuestro Planeta`, 2019, `Documental`, `Animal`, `National Geographic`, []);
 
-const totallyDocumentarys =
+export const totallyDocumentarys =
   new documentary(``, 0, ``, ``, ``, []);
 
 totallyDocumentarys.addDocumentary(goldAgeSamurais);

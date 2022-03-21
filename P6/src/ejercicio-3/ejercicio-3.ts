@@ -159,10 +159,10 @@ keyIntroduce = entry(`Introduzca la clave de cifrado: `);
 let wordIntroduce: string = ``;
 wordIntroduce = entry(`Introduzca la palabra que desea cifrar: `);
 
-const cesarCipherObj =
+export const cesarCipherObj =
   new cesarCipher(alphabetIntroduce, keyIntroduce, wordIntroduce);
 
-const example: string = cesarCipherObj.cipherFunction();
+export const example: string = cesarCipherObj.cipherFunction();
 cesarCipherObj.decipherFunction(example);
 
 // ABCDEFGHIJKLMNOPQRSTUVWXYZ
