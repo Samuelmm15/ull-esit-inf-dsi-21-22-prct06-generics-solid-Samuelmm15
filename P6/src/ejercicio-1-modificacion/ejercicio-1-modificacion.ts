@@ -115,7 +115,7 @@ class StringPrintableCollection extends printableCollection<string> {
   }
 }
 
-const example =
+export const example =
   new NumericPrintableCollection([]);
 
 example.addItem(1);
@@ -124,7 +124,7 @@ example.addItem(3);
 let representation = example.print();
 console.log(`La representación es: ${representation}`);
 
-const example1 =
+export const example1 =
     new StringPrintableCollection([]);
 
 example1.addItem(`Hola`);
