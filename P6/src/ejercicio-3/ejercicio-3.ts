@@ -1,21 +1,55 @@
 /* eslint-disable new-cap */
+/**
+ * This interface defines the structure of
+ * the cipher or decipher objects.
+ */
 interface cipherElements<T> {
   cipherFunction(): T;
   decipherFunction(cipherWord: T): T;
 }
 
+/**
+ * This class defines the structure of the
+ * cesarCipher.
+ */
 abstract class cipher implements cipherElements<string> {
+  /**
+   * This is the constructor of the class.
+   * @param alphabet Consists in the alphabet to use.
+   * @param key Consists in the cipher key.
+   * @param word Consists in the word to cipher.
+   */
   constructor(protected alphabet: string, protected key: string,
     protected word: string) {
   }
+  /**
+   * This function ciphers the word.
+   */
   abstract cipherFunction(): string;
+  /**
+   * This function desciphers the word.
+   * @param cipherWord Consists in the cipher word to decipher.
+   */
   abstract decipherFunction(cipherWord: string): string;
 }
 
+/**
+ * This class implements the algorithm called Cesar cipher algorithm.
+ */
 class cesarCipher extends cipher {
+  /**
+   * This is the constructor of the class.
+   * @param alphabet Consists in the alphabet to use.
+   * @param key Consists in the cipher key.
+   * @param word Consists in the word to cipher.
+   */
   constructor(alphabet: string, key: string, word: string) {
     super(alphabet, key, word);
   }
+  /**
+   * This is the cipher function.
+   * @returns The cipher word.
+   */
   cipherFunction(): string {
     // To equal the key to the word
     if (this.key.length <= this.word.length) {
@@ -61,8 +95,13 @@ class cesarCipher extends cipher {
     console.log(cipherResult);
     return cipherResult;
   }
+  /**
+   * This is the decipher function.
+   * @param cipherWord Consists in the cipher word to decipher.
+   * @returns The decipher word.
+   */
   decipherFunction(cipherWord: string): string {
-    // To equal the key to the cipherword
+    // To equal the key to the cipher word
     if (this.key.length <= cipherWord.length) {
       const auxiliaryKey: string = this.key;
       let i: number = 0;
@@ -123,7 +162,7 @@ wordIntroduce = entry(`Introduzca la palabra que desea cifrar: `);
 const cesarCipherObj =
   new cesarCipher(alphabetIntroduce, keyIntroduce, wordIntroduce);
 
-let example: string = cesarCipherObj.cipherFunction();
+const example: string = cesarCipherObj.cipherFunction();
 cesarCipherObj.decipherFunction(example);
 
 // ABCDEFGHIJKLMNOPQRSTUVWXYZ
