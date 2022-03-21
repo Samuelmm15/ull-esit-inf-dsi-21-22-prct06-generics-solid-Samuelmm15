@@ -1,7 +1,7 @@
 /* eslint-disable new-cap */
 interface cipherElements<T> {
   cipherFunction(): T;
-  decipherFunction(): T;
+  decipherFunction(cipherWord: T): T;
 }
 
 abstract class cipher implements cipherElements<string> {
@@ -9,7 +9,7 @@ abstract class cipher implements cipherElements<string> {
     protected word: string) {
   }
   abstract cipherFunction(): string;
-  abstract decipherFunction(): string;
+  abstract decipherFunction(cipherWord: string): string;
 }
 
 class cesarCipher extends cipher {
@@ -32,39 +32,82 @@ class cesarCipher extends cipher {
         j++;
       }
       console.log();
+      console.log(`Palabra a cifrar: `);
       console.log(this.word);
+      console.log(`Clave de cifrado: `);
       console.log(this.key);
     }
     // Cesar Cipher
     let i: number = 0;
     let j: number = 0;
-    let counter: number = 0;
+    let cipherLength: number = 0;
     let keyLength: number = 0;
     let cipherResult: string = ``;
+    let decipher: number = 0;
     for (i = 0; i < this.word.length; i++) {
       // To calculates de key
       for (j = 0; j < this.alphabet.length; j++) {
-        if (this.alphabet[j] !== this.key[i]) {
-          counter++;
-        } else {
-          counter++;
-          keyLength = (counter % this.alphabet.length);
-        }
-      }
-      // To search the character to cipher
-      for (j = 0; j < this.alphabet.length; j++) {
         if (this.alphabet[j] === this.word[i]) {
-          // eslint-disable-next-line max-len
-          cipherResult = cipherResult + this.alphabet[((j + (keyLength)) % this.alphabet.length)];
+          cipherLength = j;
+        }
+        if (this.alphabet[j] === this.key[i]) {
+          keyLength = j;
         }
       }
-      counter = 0;
+      decipher = ((cipherLength + keyLength) % (this.alphabet.length - 1));
+      cipherResult = cipherResult + this.alphabet[decipher];
     }
+    console.log(`Palabra cifrada: `);
     console.log(cipherResult);
     return cipherResult;
   }
-  decipherFunction(): string {
-    return `0`;
+  decipherFunction(cipherWord: string): string {
+    // To equal the key to the cipherword
+    if (this.key.length <= cipherWord.length) {
+      const auxiliaryKey: string = this.key;
+      let i: number = 0;
+      let j: number = 0;
+      const finalI: number = cipherWord.length - this.key.length;
+      const finalJ: number = this.key.length;
+      for (i = 0; i < finalI; i++) {
+        if (j === finalJ) {
+          j = 0;
+        }
+        this.key = this.key + auxiliaryKey[j];
+        j++;
+      }
+      console.log();
+      console.log(`Palabra cifrada: `);
+      console.log(cipherWord);
+      console.log(`Clave de cifrado: `);
+      console.log(this.key);
+    }
+    // Cesar decipher
+    let i: number = 0;
+    let j: number = 0;
+    let cipherLength: number = 0;
+    let keyLength: number = 0;
+    let decipherResult: string = ``;
+    let decipher: number = 0;
+    for (i = 0; i < cipherWord.length; i++) {
+      // To calculates de key
+      for (j = 0; j < this.alphabet.length; j++) {
+        if (this.alphabet[j] === cipherWord[i]) {
+          cipherLength = j;
+        }
+        if (this.alphabet[j] === this.key[i]) {
+          keyLength = j;
+        }
+      }
+      decipher = cipherLength - keyLength;
+      if (decipher < 0) {
+        decipher = decipher + (this.alphabet.length - 1);
+      }
+      decipherResult = decipherResult + this.alphabet[decipher];
+    }
+    console.log(`Palabra descifrada: `);
+    console.log(decipherResult);
+    return decipherResult;
   }
 }
 
@@ -80,7 +123,8 @@ wordIntroduce = entry(`Introduzca la palabra que desea cifrar: `);
 const cesarCipherObj =
   new cesarCipher(alphabetIntroduce, keyIntroduce, wordIntroduce);
 
-cesarCipherObj.cipherFunction();
+let example: string = cesarCipherObj.cipherFunction();
+cesarCipherObj.decipherFunction(example);
 
 // ABCDEFGHIJKLMNOPQRSTUVWXYZ
 // CLAVE

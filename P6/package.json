@@ -6,7 +6,7 @@
     "scripts": {
         "test": "mocha",
         "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls && rm -r .nyc_output",
-        "start": "tsc-watch --onSuccess \"node dist/ejercicio-1-modificacion/ejercicio-1-modificacion.js\"",
+        "start": "tsc-watch --onSuccess \"node dist/ejercicio-3/ejercicio-3.js\"",
         "doc": "typedoc; touch ./docs/.nojekylls"
     },
     "keywords": [],
