@@ -21,6 +21,7 @@ export class pokedex {
     const pokemonArray: pokemonUniverse[] = [];
     const starWarsArray: starWarsUniverse[] = [];
     const dragonBallArray: dragonBallUniverse[] = [];
+    // eslint-disable-next-line no-unused-vars
     let person: any;
     element.forEach((person) => {
       if ("pokemonType" in person) {
