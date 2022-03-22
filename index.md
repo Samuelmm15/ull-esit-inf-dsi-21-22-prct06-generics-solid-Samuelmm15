@@ -1,0 +1,7 @@
+# / PRÁCTICA 6: CLASES E INTERFACES GENÉRICAS. PRINCIPIOS SOLID.
+
+## // ÍNDICE
+
+
+## // Tareas previas
+
