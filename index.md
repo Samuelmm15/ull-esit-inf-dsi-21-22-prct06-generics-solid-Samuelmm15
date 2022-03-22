@@ -2,6 +2,11 @@
 
 ## // ÍNDICE
 
+1. [Tareas Previas](#id1)
+2. [Ejercicios](#id2) \
+    2.1 [Ejercicio 1](#id3) \
+    2.2 [Ejercicio 2](#id4) \
+    2.3 [Ejercicio 3](#id5)
 
 ## // Tareas previas <a name="id1"></a>
 
@@ -20,7 +25,8 @@ características de este.
 
 Tras la realización de las tareas previas expuestas anteriormente, se continua con la realización de los 
 ejercicios solicitados en el [guión](https://ull-esit-inf-dsi-2122.github.io/prct06-generics-solid/) 
-de la práctica. Para ello, haciendo uso de la estructura básica del desarrollo de proyectos en TypeScript. Se crea un directorio para cada ejercicio solicitado, dentro de `./src`, con la estructura
+de la práctica. Para ello, haciendo uso de la estructura básica del desarrollo de proyectos en TypeScript. Se 
+crea un directorio para cada ejercicio solicitado, dentro de `./src`, con la estructura
 `/ejercicio-n/ejericio-n.ts`.
 
 Además, hay que tener en cuenta que cada una de las clases desarrolladas para cada ejercicio, se deben de 
@@ -30,9 +36,12 @@ encontrar en ficheros distintos.
 
 Para este primer ejercicio, se solicita el desarrollo de un programa, que permita que, haciendo uso de la 
 implementación realizada para el [Ejercicio 1](https://ull-esit-inf-dsi-2122.github.io/prct05-objects-classes-interfaces/) 
-de la quinta práctica de la asignatura. Se puedan añadir nuevos universos a el primer universo Pokemon que había sido realizado.
+de la quinta práctica de la asignatura. Se puedan añadir nuevos universos a el primer universo Pokemon que había 
+sido realizado.
 
-Para poder conseguir esto, se crea una interfaz genérica denominada como `character`, esta, permte definir la estructura de los objetos de las clases universo que posteriormente serán desarrolladas. Dicha interfaz se puede observar a continuación:
+Para poder conseguir esto, se crea una interfaz genérica denominada como `character`, esta, permte definir la 
+estructura de los objetos de las clases universo que posteriormente serán desarrolladas. Dicha interfaz se puede 
+observar a continuación:
 
 ```
 interface character {
@@ -46,7 +55,8 @@ interface character {
 }
 ```
 
-Posteriormente, se desarrolla una clase abstracta denominada como `fighter`. Esta, será la base de todas las clases universo que sean implementadas después. Esta clase, se puede ver a continuación:
+Posteriormente, se desarrolla una clase abstracta denominada como `fighter`. Esta, será la base de todas las 
+clases universo que sean implementadas después. Esta clase, se puede ver a continuación:
 
 ```
 abstract class fighter implements character {
@@ -57,7 +67,9 @@ abstract class fighter implements character {
 }
 ```
 
-Para este caso en concreto, para la realización de este primer ejercicio, únicamente se hará uso de tres universos que cumplan el objetivo de la práctica. El primero de ellos es el universo `Pokemon`, cuyo desarrollo es:
+Para este caso en concreto, para la realización de este primer ejercicio, únicamente se hará uso de tres 
+universos que cumplan el objetivo de la práctica. El primero de ellos es el universo `Pokemon`, cuyo desarrollo 
+es:
 
 ```
 class pokemonUniverse extends fighter {
@@ -96,9 +108,16 @@ class dragonBallUniverse extends fighter {
 }
 ```
 
-Tras la implementación de estos tres unviersos, se procede al desarrollo de la clase `Combat`. Esta, se encarga de reproducir una lucha entre dos personajes de cualquiera de los universos que hayan sido seleccionado anteriormente.
+Tras la implementación de estos tres unviersos, se procede al desarrollo de la clase `Combat`. Esta, se encarga 
+de reproducir una lucha entre dos personajes de cualquiera de los universos que hayan sido seleccionado 
+anteriormente.
 
-Para ello, se desarrollan dos métodos dentro de dicha clase. El primero de ellos es el método `damageProduction`. Este, devuelve el daño que produce un combatiente a su contrincante, dependiendo de si se trata del universo Pokemon, Star Wars o Dragon Ball. Para el primero de estos universos, dependiendo del tipo de pokemon u otro, la eficacia de su ataque dependerá de ello. Por otro lado, para los combatientes de los universos Star Wars y Dragon Ball, la eficiencia del ataque de un combatiente, dependerá de los puntos de ataque que tiene el combatiente y de los puntos de defensa que tiene su contrincante.
+Para ello, se desarrollan dos métodos dentro de dicha clase. El primero de ellos es el método `damageProduction`. 
+Este, devuelve el daño que produce un combatiente a su contrincante, dependiendo de si se trata del universo 
+Pokemon, Star Wars o Dragon Ball. Para el primero de estos universos, dependiendo del tipo de pokemon u otro, la 
+eficacia de su ataque dependerá de ello. Por otro lado, para los combatientes de los universos Star Wars y Dragon 
+Ball, la eficiencia del ataque de un combatiente, dependerá de los puntos de ataque que tiene el combatiente y de 
+los puntos de defensa que tiene su contrincante.
 
 La implementación de la función se puede ver a continuación:
 
@@ -149,7 +168,9 @@ La implementación de la función se puede ver a continuación:
   }
 ```
 
-Por otro lado, el otro método desarrollado en la clase `Combat`, se denomina como `start`. Este método, se encarga de simular la lucha entre los dos combatientes. Devolviendo finalmente, el ganador de la lucha. El desarrollo del método se puede ver:
+Por otro lado, el otro método desarrollado en la clase `Combat`, se denomina como `start`. Este método, se 
+encarga de simular la lucha entre los dos combatientes. Devolviendo finalmente, el ganador de la lucha. El 
+desarrollo del método se puede ver:
 
 ```
  start(firstoponent: any, secondoponent: any) {
@@ -232,7 +253,9 @@ Por otro lado, el otro método desarrollado en la clase `Combat`, se denomina co
   }
 ```
 
-Para finalizar, se desarrolla una última clase, denominada como `Pokedex`. Esta, se encarga de introducir los distintos personajes de los distintos universos en listas, dónde, pueden ser observadas todas las características de todos los personajes de los distintos universos que sean introducidos a dicha *Pokedex*.
+Para finalizar, se desarrolla una última clase, denominada como `Pokedex`. Esta, se encarga de introducir los 
+distintos personajes de los distintos universos en listas, dónde, pueden ser observadas todas las características 
+de todos los personajes de los distintos universos que sean introducidos a dicha *Pokedex*.
 
 ```
 class pokedex {
@@ -278,11 +301,15 @@ La ejecución del programa se puede ver en la siguiente imagen:
 El testeo del primer ejercicio se observa en la imagen adjunta a continuación:
 [imagen]
 
-### Ejercicio 2 - DSIflix
+### Ejercicio 2 - DSIflix <a name="id4"></a>
 
-En el segundo ejercicio, se solicita el diseño del acceso al catálogo de una plataforma de streaming que posee tanto series, como películas y documentales.
+En el segundo ejercicio, se solicita el diseño del acceso al catálogo de una plataforma de streaming que posee 
+tanto series, como películas y documentales.
 
-Para conseguir esto, se desarrollan 4 interfaces genéricas. La primera de ellas, se encarga de definir la estructura de todos los objetos del catálogo de la plataforma. Por otro lado, las tres restantes se encargan de definir ciertas características concretas de los distitnos elementos del catálogo, es decir, una interfaz para las series, otra para las películas y otra para los documentales.
+Para conseguir esto, se desarrollan 4 interfaces genéricas. La primera de ellas, se encarga de definir la 
+estructura de todos los objetos del catálogo de la plataforma. Por otro lado, las tres restantes se encargan de 
+definir ciertas características concretas de los distitnos elementos del catálogo, es decir, una interfaz para 
+las series, otra para las películas y otra para los documentales.
 
 Todas las interfaces que han sido nombradas anteriormente se pueden ver a continuación:
 
@@ -326,7 +353,8 @@ interface streamable_documentary<T> {
 }
 ```
 
-A continuación, se hace uso de una clase abstracta denominada como `basicStreamableCollection`, que será útil para poder desarrollar clases específicas para las series, las películas y los documentales.
+A continuación, se hace uso de una clase abstracta denominada como `basicStreamableCollection`, que será útil 
+para poder desarrollar clases específicas para las series, las películas y los documentales.
 
 ```
 abstract class basicStreamableCollection implements streamable<any> {
@@ -339,9 +367,12 @@ abstract class basicStreamableCollection implements streamable<any> {
 }
 ```
 
-En consecuencia, se comienza con la realización de la clase `series`. Esta, implementa tres métodos que permiten la ordenación del catálogo, dependiendo de si se trata por orden alfabético de su nombre, por su fecha de emisión o por su categoría.
+En consecuencia, se comienza con la realización de la clase `series`. Esta, implementa tres métodos que permiten 
+la ordenación del catálogo, dependiendo de si se trata por orden alfabético de su nombre, por su fecha de emisión 
+o por su categoría.
 
-El primero de estos métodos es `nameFilter`, este se encarga de ordenar la lista de series de manera que se muestren por pantalla ordenadas por orden alfabético según el nombre de cada una de las series:
+El primero de estos métodos es `nameFilter`, este se encarga de ordenar la lista de series de manera que se 
+muestren por pantalla ordenadas por orden alfabético según el nombre de cada una de las series:
 
 ```
 nameFilter(): any {
@@ -369,7 +400,8 @@ nameFilter(): any {
   }
 ```
 
-El segundo de estos métodos es `ageFilter`. El método, se encarga de ordenar las series según el año de emisión de cada una de las series que se encuentren dentro del catálogo. Esto se puede observar a continuación:
+El segundo de estos métodos es `ageFilter`. El método, se encarga de ordenar las series según el año de emisión 
+de cada una de las series que se encuentren dentro del catálogo. Esto se puede observar a continuación:
 
 ```
 ageFilter(): any {
@@ -399,7 +431,9 @@ ageFilter(): any {
   }
 ```
 
-Por último, el tercer método es `categoryFilter`. Este, ordena las series del catálogo, según el tipo de serie del que se trate, es decir, dependiendo de la categoría de la serie. Pueden ser, de categoría de miedo, de comedia, etc.
+Por último, el tercer método es `categoryFilter`. Este, ordena las series del catálogo, según el tipo de serie 
+del que se trate, es decir, dependiendo de la categoría de la serie. Pueden ser, de categoría de miedo, de 
+comedia, etc.
 
 ```
 categoryFilter(): any {
@@ -429,7 +463,10 @@ categoryFilter(): any {
   }
 ```
 
-Tras el desarrollo de la clase `series`, se continua con las demás clases, necesarias para los distintos elementos que componen el catálogo, es decir, para las películas y los documentales. Hay que tener en cuenta que, el desarrollo de los métodos de ambas clases (`films`, `documentary`) es de manera similar a los métodos implementados en la clase `series`, pero, aplicados a los elementos de tipo `films` y `documentary`.
+Tras el desarrollo de la clase `series`, se continua con las demás clases, necesarias para los distintos 
+elementos que componen el catálogo, es decir, para las películas y los documentales. Hay que tener en cuenta que, 
+el desarrollo de los métodos de ambas clases (`films`, `documentary`) es de manera similar a los métodos 
+implementados en la clase `series`, pero, aplicados a los elementos de tipo `films` y `documentary`.
 
 Por tanto, la clase `films` se puede observar:
 
@@ -605,8 +642,157 @@ Finalmente, la ejecución del programa se puede observar en la imagen adjunta a 
 El testeo de este:
 [imagen]
 
-### Ejercicio 3 - El cifrado indescifrable
+### Ejercicio 3 - El cifrado indescifrable <a name="id5"></a>
 
-Para este tercer y último ejercicio, se solicita la implementación del [Cifrado de César](https://es.wikipedia.org/wiki/Cifrado_César), este, se trata de un cifrado que, haciendo uso de un alfabeto de entrada y una clave, permite el cifrado y descifrado de una cadena de texto que pretende cifrar.
+Para este tercer y último ejercicio, se solicita la implementación del [Cifrado de César](https://es.wikipedia.org/wiki/Cifrado_César), este, se trata de un cifrado que, haciendo uso de un alfabeto de entrada y una clave, 
+permite el cifrado y descifrado de una cadena de texto que pretende cifrar.
 
+Para comenzar, se implementa una interfaz genérica denominada como `cipherElements`. Esta incluye, los métodos de 
+cifrado y descifrado que serán usados posteriormente para poder desarrollar la clase del cifrado de César. Esta 
+interfaz queda plasmada a continuación:
 
+```
+interface cipherElements<T> {
+  cipherFunction(): T;
+  decipherFunction(cipherWord: T): T;
+}
+```
+
+A continuación, se desarrolla una clase abstracta denominada como `cipher`, que permite definir distintas clases 
+de algoritmos de cifrado a continuación, pero en este caso, para este ejercicio, únicamente se va a realizar la 
+implementación del cifrado de César. Dicha clase abstracta:
+
+```
+abstract class cipher implements cipherElements<string> {
+  constructor(protected alphabet: string, protected key: string,
+      protected word: string) {
+  }
+    abstract cipherFunction(): string;
+    abstract decipherFunction(cipherWord: string): string;
+}
+```
+
+Para finalizar, se implementa la clase `cesarCipher`. Esta, desarrolla dos métodos:
+
+El primero de ellos se denomina como `cipherFunction`. Este método, se encarga de recorrer el alfabeto 
+intrducido, comparando los caracteres de la cadena a cifrar y la clave de cifrado uno por uno, de manera que la 
+distancia que se produce entre ambos caracteres, será sumanda para obtener un nuevo caracter totalmente distinto, 
+generando por tanto, la nueva cadena cifrada.
+
+```
+cipherFunction(): string {
+    // To equal the key to the word
+    if (this.key.length <= this.word.length) {
+      const auxiliaryKey: string = this.key;
+      let i: number = 0;
+      let j: number = 0;
+      const finalI: number = this.word.length - this.key.length;
+      const finalJ: number = this.key.length;
+      for (i = 0; i < finalI; i++) {
+        if (j === finalJ) {
+          j = 0;
+        }
+        this.key = this.key + auxiliaryKey[j];
+        j++;
+      }
+      console.log();
+      console.log(`Palabra a cifrar: `);
+      console.log(this.word);
+      console.log(`Clave de cifrado: `);
+      console.log(this.key);
+    }
+    // Cesar Cipher
+    let i: number = 0;
+    let j: number = 0;
+    let cipherLength: number = 0;
+    let keyLength: number = 0;
+    let cipherResult: string = ``;
+    let decipher: number = 0;
+    for (i = 0; i < this.word.length; i++) {
+      // To calculates de key
+      for (j = 0; j < this.alphabet.length; j++) {
+        if (this.alphabet[j] === this.word[i]) {
+          cipherLength = j;
+        }
+        if (this.alphabet[j] === this.key[i]) {
+          keyLength = j;
+        }
+      }
+      decipher = ((cipherLength + keyLength) % (this.alphabet.length - 1));
+      cipherResult = cipherResult + this.alphabet[decipher];
+    }
+    console.log(`Palabra cifrada: `);
+    console.log(cipherResult);
+    return cipherResult;
+  }
+```
+
+Por otro lado, se implementa el método `decipherFunction`. Este, compara los caracteres de la cadena cifrada, 
+junto con la clave que ha recibido dentro del alfabeto de cifrado. Las posiciones de ambos caracteres dentro del 
+alfabeto, serán restadas, de manera que se obtene un nuevo caracter, siendo este, el caracter de la cadena 
+original que había sido cifrada.
+
+```
+decipherFunction(cipherWord: string): string {
+    // To equal the key to the cipher word
+    if (this.key.length <= cipherWord.length) {
+      const auxiliaryKey: string = this.key;
+      let i: number = 0;
+      let j: number = 0;
+      const finalI: number = cipherWord.length - this.key.length;
+      const finalJ: number = this.key.length;
+      for (i = 0; i < finalI; i++) {
+        if (j === finalJ) {
+          j = 0;
+        }
+        this.key = this.key + auxiliaryKey[j];
+        j++;
+      }
+      console.log();
+      console.log(`Palabra cifrada: `);
+      console.log(cipherWord);
+      console.log(`Clave de cifrado: `);
+      console.log(this.key);
+    }
+    // Cesar decipher
+    let i: number = 0;
+    let j: number = 0;
+    let cipherLength: number = 0;
+    let keyLength: number = 0;
+    let decipherResult: string = ``;
+    let decipher: number = 0;
+    for (i = 0; i < cipherWord.length; i++) {
+      // To calculates de key
+      for (j = 0; j < this.alphabet.length; j++) {
+        if (this.alphabet[j] === cipherWord[i]) {
+          cipherLength = j;
+        }
+        if (this.alphabet[j] === this.key[i]) {
+          keyLength = j;
+        }
+      }
+      decipher = cipherLength - keyLength;
+      if (decipher < 0) {
+        decipher = decipher + (this.alphabet.length - 1);
+      }
+      decipherResult = decipherResult + this.alphabet[decipher];
+    }
+    console.log(`Palabra descifrada: `);
+    console.log(decipherResult);
+    return decipherResult;
+  }
+```
+
+La ejecución del programa se puede ver a continuación:
+[imagen]
+
+El testeo de la implementación se observa:
+[imagen]
+
+En conclusión, esta sexta práctica de la asignatura, me ha ayudado a familiarizarme un poco más con los 
+principios SOLID y su uso, no tan solo para TypeScript, sino también el posible uso de estos principios en otros 
+lenguajes de programación.
+
+Por otro lado, el uso de la herencia, de interfaces generales, clases abstractas, etc, me ha permitido aprender 
+sobre la programación orienta a objetos, ya que muchos otros lenguajes permiten este tipo de programación, por 
+tanto, el uso de este tipo de facilidades, permite un desarrollo, mucho más completo, seguro y optimizado.
