@@ -282,4 +282,331 @@ El testeo del primer ejercicio se observa en la imagen adjunta a continuación:
 
 En el segundo ejercicio, se solicita el diseño del acceso al catálogo de una plataforma de streaming que posee tanto series, como películas y documentales.
 
-Para conseguir esto, 
+Para conseguir esto, se desarrollan 4 interfaces genéricas. La primera de ellas, se encarga de definir la estructura de todos los objetos del catálogo de la plataforma. Por otro lado, las tres restantes se encargan de definir ciertas características concretas de los distitnos elementos del catálogo, es decir, una interfaz para las series, otra para las películas y otra para los documentales.
+
+Todas las interfaces que han sido nombradas anteriormente se pueden ver a continuación:
+
+**Interfaz general para todos los elementos del catálogo:**
+```
+interface streamable<T> {
+  name: string;
+  age: number;
+  type: string;
+  category: string;
+  nameFilter(): T;
+  ageFilter(): T;
+  categoryFilter(): T;
+}
+```
+
+**Interfaz para las series:**
+
+```
+interface streamable_serie<T> {
+  addSeries(serieAdd: T): void;
+  seasons: number;
+}
+```
+
+**Interfaz para las películas:**
+
+```
+interface streamable_film<T> {
+  addFilm(filmAdd: T): void;
+  production: string;
+}
+```
+
+**Interfaz para los documentales:**
+
+```
+interface streamable_documentary<T> {
+  addDocumentary(documentaryAdd: T): void;
+  company: string;
+}
+```
+
+A continuación, se hace uso de una clase abstracta denominada como `basicStreamableCollection`, que será útil para poder desarrollar clases específicas para las series, las películas y los documentales.
+
+```
+abstract class basicStreamableCollection implements streamable<any> {
+  constructor(public name: string, public age: number, public type: string,
+      public category: string) {
+  }
+    abstract nameFilter(): any;
+    abstract ageFilter(): any;
+    abstract categoryFilter(): any;
+}
+```
+
+En consecuencia, se comienza con la realización de la clase `series`. Esta, implementa tres métodos que permiten la ordenación del catálogo, dependiendo de si se trata por orden alfabético de su nombre, por su fecha de emisión o por su categoría.
+
+El primero de estos métodos es `nameFilter`, este se encarga de ordenar la lista de series de manera que se muestren por pantalla ordenadas por orden alfabético según el nombre de cada una de las series:
+
+```
+nameFilter(): any {
+    let i: number = 0;
+    let auxiliaryResult: any[] = [];
+    let result: any[] = [];
+    for (i = 0; i < this.seriesArray.length; i++) {
+      auxiliaryResult.push(this.seriesArray[i].name);
+    }
+    result = auxiliaryResult.sort();
+    let finalResult: any[] = [];
+    let j: number = 0;
+    let counter: number = 0;
+    for (i = 0; i < this.seriesArray.length; i++) {
+      for (j = 0; j < this.seriesArray.length; j++) {
+        if ((result[i] === this.seriesArray[j].name) && (counter < result.length)) {
+          counter++;
+          finalResult.push(this.seriesArray[j]);
+        }
+      }
+    }
+    console.log();
+    console.log(`La lista de series del catálogo ordenada por orden alfabético es: `);
+    console.log(finalResult);
+  }
+```
+
+El segundo de estos métodos es `ageFilter`. El método, se encarga de ordenar las series según el año de emisión de cada una de las series que se encuentren dentro del catálogo. Esto se puede observar a continuación:
+
+```
+ageFilter(): any {
+    let i: number = 0;
+    let auxiliaryResult: any[] = [];
+    let result: any[] = [];
+    for (i = 0; i < this.seriesArray.length; i++) {
+      auxiliaryResult.push(this.seriesArray[i].age);
+    }
+    result = auxiliaryResult.sort();
+    let finalResult: any[] = [];
+    let j: number = 0;
+    let counter: number = 0;
+    for (i = 0; i < this.seriesArray.length; i++) {
+      for (j = 0; j < this.seriesArray.length; j++) {
+        // eslint-disable-next-line max-len
+        if ((result[i] === this.seriesArray[j].age) && (counter < result.length)) {
+          counter++;
+          finalResult.push(this.seriesArray[j]);
+        }
+      }
+    }
+    console.log();
+    // eslint-disable-next-line max-len
+    console.log(`La lista de serie del catálogo ordenada por orden de año de estreno es: `);
+    console.log(finalResult);
+  }
+```
+
+Por último, el tercer método es `categoryFilter`. Este, ordena las series del catálogo, según el tipo de serie del que se trate, es decir, dependiendo de la categoría de la serie. Pueden ser, de categoría de miedo, de comedia, etc.
+
+```
+categoryFilter(): any {
+    let i: number = 0;
+    let auxiliaryResult: any[] = [];
+    let result: any[] = [];
+    for (i = 0; i < this.seriesArray.length; i++) {
+      auxiliaryResult.push(this.seriesArray[i].category);
+    }
+    result = auxiliaryResult.sort();
+    let finalResult: any[] = [];
+    let j: number = 0;
+    let counter: number = 0;
+    for (i = 0; i < this.seriesArray.length; i++) {
+      for (j = 0; j < this.seriesArray.length; j++) {
+        // eslint-disable-next-line max-len
+        if ((result[i] === this.seriesArray[j].category) && (counter < result.length)) {
+          counter++;
+          finalResult.push(this.seriesArray[j]);
+        }
+      }
+    }
+    console.log();
+    // eslint-disable-next-line max-len
+    console.log(`La lista de serie del catálogo ordenada por orden categoría es: `);
+    console.log(finalResult);
+  }
+```
+
+Tras el desarrollo de la clase `series`, se continua con las demás clases, necesarias para los distintos elementos que componen el catálogo, es decir, para las películas y los documentales. Hay que tener en cuenta que, el desarrollo de los métodos de ambas clases (`films`, `documentary`) es de manera similar a los métodos implementados en la clase `series`, pero, aplicados a los elementos de tipo `films` y `documentary`.
+
+Por tanto, la clase `films` se puede observar:
+
+```
+class films extends basicStreamableCollection implements streamable_film<any> {
+  constructor(name: string, age: number, type: string,
+      category: string, public production: string, private FilmsArray: any[]) {
+    super(name, age, type, category);
+  }
+  addFilm(filmAdd: any): void {
+    this.FilmsArray.push(filmAdd);
+  }
+  nameFilter(): any {
+    let i: number = 0;
+    let auxiliaryResult: any[] = [];
+    let result: any[] = [];
+    for (i = 0; i < this.FilmsArray.length; i++) {
+      auxiliaryResult.push(this.FilmsArray[i].name);
+    }
+    result = auxiliaryResult.sort();
+    let finalResult: any[] = [];
+    let j: number = 0;
+    let counter: number = 0;
+    for (i = 0; i < this.FilmsArray.length; i++) {
+      for (j = 0; j < this.FilmsArray.length; j++) {
+        if ((result[i] === this.FilmsArray[j].name) && (counter < result.length)) {
+          counter++;
+          finalResult.push(this.FilmsArray[j]);
+        }
+      }
+    }
+    console.log();
+    console.log(`La lista de películas del catálogo ordenada por orden alfabético es: `);
+    console.log(finalResult);
+  }
+  ageFilter(): any {
+    let i: number = 0;
+    let auxiliaryResult: any[] = [];
+    let result: any[] = [];
+    for (i = 0; i < this.FilmsArray.length; i++) {
+      auxiliaryResult.push(this.FilmsArray[i].age);
+    }
+    result = auxiliaryResult.sort();
+    let finalResult: any[] = [];
+    let j: number = 0;
+    let counter: number = 0;
+    for (i = 0; i < this.FilmsArray.length; i++) {
+      for (j = 0; j < this.FilmsArray.length; j++) {
+        if ((result[i] === this.FilmsArray[j].age) && (counter < result.length)) {
+          counter++;
+          finalResult.push(this.FilmsArray[j]);
+        }
+      }
+    }
+    console.log();
+    console.log(`La lista de películas del catálogo ordenada por orden de año de estreno es: `);
+    console.log(finalResult);
+  }
+  categoryFilter(): any {
+    let i: number = 0;
+    let auxiliaryResult: any[] = [];
+    let result: any[] = [];
+    for (i = 0; i < this.FilmsArray.length; i++) {
+      auxiliaryResult.push(this.FilmsArray[i].category);
+    }
+    result = auxiliaryResult.sort();
+    let finalResult: any[] = [];
+    let j: number = 0;
+    let counter: number = 0;
+    for (i = 0; i < this.FilmsArray.length; i++) {
+      for (j = 0; j < this.FilmsArray.length; j++) {
+        if ((result[i] === this.FilmsArray[j].category) && (counter < result.length)) {
+          counter++;
+          finalResult.push(this.FilmsArray[j]);
+        }
+      }
+    }
+    console.log();
+    console.log(`La lista de películas del catálogo ordenada por orden categoría es: `);
+    console.log(finalResult);
+  }
+}
+```
+
+La clase `documentary`:
+
+```
+class documentary extends basicStreamableCollection
+  implements streamable_documentary<any> {
+  constructor(name: string, age: number, type: string,
+      category: string, public company: string,
+     private documentaryArray: any[]) {
+    super(name, age, type, category);
+  }
+  addDocumentary(documentaryAdd: any): void {
+    this.documentaryArray.push(documentaryAdd);
+  }
+  nameFilter(): any {
+    let i: number = 0;
+    let auxiliaryResult: any[] = [];
+    let result: any[] = [];
+    for (i = 0; i < this.documentaryArray.length; i++) {
+      auxiliaryResult.push(this.documentaryArray[i].name);
+    }
+    result = auxiliaryResult.sort();
+    let finalResult: any[] = [];
+    let j: number = 0;
+    let counter: number = 0;
+    for (i = 0; i < this.documentaryArray.length; i++) {
+      for (j = 0; j < this.documentaryArray.length; j++) {
+        if ((result[i] === this.documentaryArray[j].name) && (counter < result.length)) {
+          counter++;
+          finalResult.push(this.documentaryArray[j]);
+        }
+      }
+    }
+    console.log();
+    console.log(`La lista de documentales del catálogo ordenada por orden alfabético es: `);
+    console.log(finalResult);
+  }
+  ageFilter(): any {
+    let i: number = 0;
+    let auxiliaryResult: any[] = [];
+    let result: any[] = [];
+    for (i = 0; i < this.documentaryArray.length; i++) {
+      auxiliaryResult.push(this.documentaryArray[i].age);
+    }
+    result = auxiliaryResult.sort();
+    let finalResult: any[] = [];
+    let j: number = 0;
+    let counter: number = 0;
+    for (i = 0; i < this.documentaryArray.length; i++) {
+      for (j = 0; j < this.documentaryArray.length; j++) {
+        if ((result[i] === this.documentaryArray[j].age) && (counter < result.length)) {
+          counter++;
+          finalResult.push(this.documentaryArray[j]);
+        }
+      }
+    }
+    console.log();
+    console.log(`La lista de documentales del catálogo ordenada por orden de año de estreno es: `);
+    console.log(finalResult);
+  }
+  categoryFilter(): any {
+    let i: number = 0;
+    let auxiliaryResult: any[] = [];
+    let result: any[] = [];
+    for (i = 0; i < this.documentaryArray.length; i++) {
+      auxiliaryResult.push(this.documentaryArray[i].category);
+    }
+    result = auxiliaryResult.sort();
+    let finalResult: any[] = [];
+    let j: number = 0;
+    let counter: number = 0;
+    for (i = 0; i < this.documentaryArray.length; i++) {
+      for (j = 0; j < this.documentaryArray.length; j++) {
+        if ((result[i] === this.documentaryArray[j].category) && (counter < result.length)) {
+          counter++;
+          finalResult.push(this.documentaryArray[j]);
+        }
+      }
+    }
+    console.log();
+    console.log(`La lista de documentales del catálogo ordenada por orden categoría es: `);
+    console.log(finalResult);
+  }
+}
+```
+
+Finalmente, la ejecución del programa se puede observar en la imagen adjunta a continuación:
+[imagen]
+
+El testeo de este:
+[imagen]
+
+### Ejercicio 3 - El cifrado indescifrable
+
+Para este tercer y último ejercicio, se solicita la implementación del [Cifrado de César](https://es.wikipedia.org/wiki/Cifrado_César), este, se trata de un cifrado que, haciendo uso de un alfabeto de entrada y una clave, permite el cifrado y descifrado de una cadena de texto que pretende cifrar.
+
+
