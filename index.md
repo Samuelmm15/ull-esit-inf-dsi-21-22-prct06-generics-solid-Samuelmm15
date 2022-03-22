@@ -296,10 +296,16 @@ class pokedex {
 ```
 
 La ejecución del programa se puede ver en la siguiente imagen:
-[imagen]
+
+![exercise-1-execution](https://user-images.githubusercontent.com/72341631/159565588-eaec3173-0b10-45c7-8d14-c94c12daa0ad.png)
+
+![exercise-1-execution-1](https://user-images.githubusercontent.com/72341631/159565615-8655e906-8991-4224-a7b2-42a4ca2abdff.png)
 
 El testeo del primer ejercicio se observa en la imagen adjunta a continuación:
-[imagen]
+
+![exercise-1-test](https://user-images.githubusercontent.com/72341631/159565647-e0f6085a-4edf-43c0-9d7c-53c16df2d757.png)
+
+![exercise-1-coverage](https://user-images.githubusercontent.com/72341631/159565680-8095ed09-3116-4786-bcd4-ccd2b3736466.png)
 
 ### Ejercicio 2 - DSIflix <a name="id4"></a>
 
@@ -637,10 +643,14 @@ class documentary extends basicStreamableCollection
 ```
 
 Finalmente, la ejecución del programa se puede observar en la imagen adjunta a continuación:
-[imagen]
+
+![exercise-2-execution](https://user-images.githubusercontent.com/72341631/159565754-d456300d-87c3-4409-a56c-ef04a8f310ed.png)
+
+![exercise-2-execution-1](https://user-images.githubusercontent.com/72341631/159565772-e476795e-54a5-42b1-a90f-31a6859c79a0.png)
 
 El testeo de este:
-[imagen]
+
+![exercise-2-test](https://user-images.githubusercontent.com/72341631/159565810-9adf35f9-9d06-4f19-ae33-1884531b12ba.png)
 
 ### Ejercicio 3 - El cifrado indescifrable <a name="id5"></a>
 
@@ -784,10 +794,12 @@ decipherFunction(cipherWord: string): string {
 ```
 
 La ejecución del programa se puede ver a continuación:
-[imagen]
+
+![excersice-3-execution](https://user-images.githubusercontent.com/72341631/159565901-95ecdc28-3adb-414f-8d45-af854064ad9a.png)
 
 El testeo de la implementación se observa:
-[imagen]
+
+![exercise-3-test](https://user-images.githubusercontent.com/72341631/159565921-299d4b3f-165b-432b-b87c-7ce686c16798.png)
 
 En conclusión, esta sexta práctica de la asignatura, me ha ayudado a familiarizarme un poco más con los 
 principios SOLID y su uso, no tan solo para TypeScript, sino también el posible uso de estos principios en otros 
