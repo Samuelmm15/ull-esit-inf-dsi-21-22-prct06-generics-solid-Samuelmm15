@@ -17,7 +17,7 @@ Dicho vídeo, explica la intalación y el uso de dos herramientas que permiten e
 TypeScript. La primera de estas herramientas es [Instambul](https://istanbul.js.org)
 , esta, se encarga de generar un informe de cubrimiento del código desarrollado en TypeScript. Por otro lado, se 
 encuentra la herramienta [Coverralls](https://coveralls.io)
-. Dicha herramienta, se encagra de obtener el informe de cubrimiento generado gracias a **Instambull** y subirlo 
+. Dicha herramienta, se encarga de obtener el informe de cubrimiento generado gracias a **Instambull** y subirlo 
 a su página web, permitiendo visualizar dicho informe de manera más detallada y pudiendo observar otras 
 características de este.
 
@@ -25,7 +25,7 @@ características de este.
 
 Tras la realización de las tareas previas expuestas anteriormente, se continua con la realización de los 
 ejercicios solicitados en el [guión](https://ull-esit-inf-dsi-2122.github.io/prct06-generics-solid/) 
-de la práctica. Para ello, haciendo uso de la estructura básica del desarrollo de proyectos en TypeScript. Se 
+de la práctica. Para ello, haciendo uso de la estructura básica de desarrollo de proyectos en TypeScript. Se 
 crea un directorio para cada ejercicio solicitado, dentro de `./src`, con la estructura
 `/ejercicio-n/ejericio-n.ts`.
 
@@ -36,10 +36,10 @@ encontrar en ficheros distintos.
 
 Para este primer ejercicio, se solicita el desarrollo de un programa, que permita que, haciendo uso de la 
 implementación realizada para el [Ejercicio 1](https://ull-esit-inf-dsi-2122.github.io/prct05-objects-classes-interfaces/) 
-de la quinta práctica de la asignatura. Se puedan añadir nuevos universos a el primer universo Pokemon que había 
+de la quinta práctica de la asignatura. Se puedan añadir nuevos universos a el primer universo Pokemon que se había 
 sido realizado.
 
-Para poder conseguir esto, se crea una interfaz genérica denominada como `character`, esta, permte definir la 
+Para poder conseguir esto, se crea una interfaz genérica denominada como `character`, esta, permite definir la 
 estructura de los objetos de las clases universo que posteriormente serán desarrolladas. Dicha interfaz se puede 
 observar a continuación:
 
@@ -67,7 +67,7 @@ abstract class fighter implements character {
 }
 ```
 
-Para este caso en concreto, para la realización de este primer ejercicio, únicamente se hará uso de tres 
+Para este caso en concreto, en este primer ejercicio, únicamente se hará uso de tres 
 universos que cumplan el objetivo de la práctica. El primero de ellos es el universo `Pokemon`, cuyo desarrollo 
 es:
 
@@ -109,7 +109,7 @@ class dragonBallUniverse extends fighter {
 ```
 
 Tras la implementación de estos tres unviersos, se procede al desarrollo de la clase `Combat`. Esta, se encarga 
-de reproducir una lucha entre dos personajes de cualquiera de los universos que hayan sido seleccionado 
+de reproducir una lucha entre dos personajes de cualquiera de los universos que hayan sido seleccionados 
 anteriormente.
 
 Para ello, se desarrollan dos métodos dentro de dicha clase. El primero de ellos es el método `damageProduction`. 
@@ -265,7 +265,6 @@ class pokedex {
     const pokemonArray: pokemonUniverse[] = [];
     const starWarsArray: starWarsUniverse[] = [];
     const dragonBallArray: dragonBallUniverse[] = [];
-    // eslint-disable-next-line no-unused-vars
     let person: any;
     element.forEach((person) => {
       if ("pokemonType" in person) {
@@ -368,10 +367,10 @@ abstract class basicStreamableCollection implements streamable<any> {
 ```
 
 En consecuencia, se comienza con la realización de la clase `series`. Esta, implementa tres métodos que permiten 
-la ordenación del catálogo, dependiendo de si se trata por orden alfabético de su nombre, por su fecha de emisión 
+la ordenación del catálogo, dependiendo de si es por orden alfabético de su nombre, por su fecha de emisión 
 o por su categoría.
 
-El primero de estos métodos es `nameFilter`, este se encarga de ordenar la lista de series de manera que se 
+El primero de estos métodos es `nameFilter`, este, se encarga de ordenar la lista de series de manera que se 
 muestren por pantalla ordenadas por orden alfabético según el nombre de cada una de las series:
 
 ```
@@ -645,7 +644,7 @@ El testeo de este:
 ### Ejercicio 3 - El cifrado indescifrable <a name="id5"></a>
 
 Para este tercer y último ejercicio, se solicita la implementación del [Cifrado de César](https://es.wikipedia.org/wiki/Cifrado_César), este, se trata de un cifrado que, haciendo uso de un alfabeto de entrada y una clave, 
-permite el cifrado y descifrado de una cadena de texto que pretende cifrar.
+permite el cifrado y descifrado de una cadena de texto.
 
 Para comenzar, se implementa una interfaz genérica denominada como `cipherElements`. Esta incluye, los métodos de 
 cifrado y descifrado que serán usados posteriormente para poder desarrollar la clase del cifrado de César. Esta 
@@ -659,7 +658,7 @@ interface cipherElements<T> {
 ```
 
 A continuación, se desarrolla una clase abstracta denominada como `cipher`, que permite definir distintas clases 
-de algoritmos de cifrado a continuación, pero en este caso, para este ejercicio, únicamente se va a realizar la 
+de algoritmos de cifrado, pero en este caso, para este ejercicio, únicamente se va a realizar la 
 implementación del cifrado de César. Dicha clase abstracta:
 
 ```
