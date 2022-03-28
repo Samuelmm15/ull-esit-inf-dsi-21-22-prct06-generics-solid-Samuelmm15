@@ -41,7 +41,7 @@ export class PrimeNumbers {
   }
   /**
    * This function sets values into the vector
-   * @param item 
+   * @param item Consists in the item to introduce
    */
   setNumbers(item: number) {
     this.primeVector.push(item);
