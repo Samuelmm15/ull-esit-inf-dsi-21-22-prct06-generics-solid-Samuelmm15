@@ -3,7 +3,8 @@
         "./src/ejercicio-1/ejercicio-1.ts",
         "./src/ejercicio-2/ejercicio-2.ts",
         "./src/ejercicio-3/ejercicio-3.ts",
-        "./src/ejercicio-1-modificacion/ejercicio-1-modificacion.ts"
+        "./src/ejercicio-1-modificacion/ejercicio-1-modificacion.ts",
+        "./src/ejercicio-2-modificacion/ejercicio-2-modificacion.ts"
     ],
     "out": "./docs"
 }
