@@ -10,7 +10,7 @@ export class PrimeNumbers {
    * This is the constructor of the class
    * @param items Consists in a list of numbers
    */
-  constructor(items: number[]) {
+  private constructor(items: number[]) {
     this.primeVector = items;
     this.primeVectorResult = new Set(items);
   }
@@ -58,7 +58,9 @@ export class PrimeNumbers {
     for (i = 0; i < position; i++) {
       auxiliary = this.factorial((this.primeVector[i] - 1)) + 1;
       if ((auxiliary % this.primeVector[i]) === 0) {
-        this.primeVectorResult.add(this.primeVector[i]);
+        if (this.primeVector[i] !== 1) {
+          this.primeVectorResult.add(this.primeVector[i]);
+        }
       }
       auxiliary = 0;
     }
@@ -79,7 +81,9 @@ export class PrimeNumbers {
       auxiliary = this.factorial((this.primeVector[i] - 1)) + 1;
       // eslint-disable-next-line max-len
       if (((auxiliary % this.primeVector[i]) === 0)) {
-        this.primeVectorResult.add(this.primeVector[i]);
+        if (this.primeVector[i] !== 1) {
+          this.primeVectorResult.add(this.primeVector[i]);
+        }
       }
       auxiliary = 0;
     }
