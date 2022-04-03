@@ -1,7 +1,7 @@
 # ull-esit-inf-dsi-21-22-prct06-generics-solid-Samuelmm15
 ull-esit-inf-dsi-21-22-prct06-generics-solid-Samuelmm15 created by GitHub Classroom
 
-[![Coveralls](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Samuelmm15/actions/workflows/coveralls.yml/badge.svg)](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Samuelmm15/actions/workflows/coveralls.yml)
+[![Coveralls](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Samuelmm15/actions/workflows/coveralls.yml/badge.svg?branch=main)](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Samuelmm15/actions/workflows/coveralls.yml)
 
 [![Tests](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Samuelmm15/actions/workflows/tests.js.yml/badge.svg)](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Samuelmm15/actions/workflows/tests.js.yml)
 
